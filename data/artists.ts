@@ -1,6 +1,5 @@
 export default [
     {
-      "id": "ART-001",
       "name": "Metallica",
       "description": "Metallica is an American heavy metal band. The band was formed in 1981 in Los Angeles by vocalist/guitarist James Hetfield and drummer Lars Ulrich.",
       "age": 40,
@@ -19,7 +18,6 @@ export default [
       }
     },
     {
-      "id": "ART-002",
       "name": "Iron Maiden",
       "description": "Iron Maiden are an English heavy metal band formed in Leyton, East London, in 1975 by bassist and primary songwriter Steve Harris.",
       "age": 46,
@@ -38,7 +36,6 @@ export default [
       }
     },
     {
-      "id": "ART-003",
       "name": "AC/DC",
       "description": "AC/DC are an Australian rock band formed in Sydney in 1973 by Scottish-born brothers Malcolm and Angus Young.",
       "age": 48,
@@ -57,7 +54,6 @@ export default [
       }
     },
     {
-      "id": "ART-004",
       "name": "Guns N' Roses",
       "description": "Guns N' Roses, often abbreviated as GNR, is an American hard rock band from Los Angeles, California, formed in 1985.",
       "age": 36,
@@ -76,7 +72,6 @@ export default [
       }
     },
     {
-      "id": "ART-005",
       "name": "Led Zeppelin",
       "description": "Led Zeppelin were an English rock band formed in London in 1968. The group consisted of vocalist Robert Plant, guitarist Jimmy Page, bassist/keyboardist John Paul Jones, and drummer John Bonham.",
       "age": 53,
@@ -95,7 +90,6 @@ export default [
       }
     },
     {
-      "id": "ART-006",
       "name": "Queen",
       "description": "Queen are a British rock band formed in London in 1970. Their classic line-up was Freddie Mercury (lead vocals, piano), Brian May (guitar, vocals), Roger Taylor (drums, vocals) and John Deacon (bass guitar).",
       "age": 51,
@@ -114,7 +108,6 @@ export default [
       }
     },
     {
-      "id": "ART-007",
       "name": "The Rolling Stones",
       "description": "The Rolling Stones are an English rock band formed in London in 1962. The first stable line-up consisted of bandleader Brian Jones (guitar, harmonica, keyboards), Mick Jagger (lead vocals, harmonica), Keith Richards (guitar, vocals), Bill Wyman (bass guitar), Charlie Watts (drums), and Ian Stewart (piano).",
       "age": 59,
@@ -133,7 +126,6 @@ export default [
       }
     },
     {
-      "id": "ART-008",
       "name": "The Beatles",
       "description": "The Beatles were an English rock band formed in Liverpool in 1960. With a line-up comprising John Lennon, Paul McCartney, George Harrison and Ringo Starr, they are regarded as the most influential band of all time.",
       "age": 61,
@@ -152,7 +144,6 @@ export default [
       }
     },
     {
-      "id": "ART-009",
       "name": "Pink Floyd",
       "description": "Pink Floyd were an English rock band formed in London in 1965. Gaining a following as a psychedelic rock group, they were distinguished for their extended compositions, sonic experimentation, philosophical lyrics and elaborate live shows.",
       "age": 56,
@@ -171,7 +162,6 @@ export default [
       }
     },
     {
-      "id": "ART-010",
       "name": "Tool",
       "description": "Band Tool is an American rock band. The band was formed by good musicins",
       "age": 31,

@@ -1,5 +1,7 @@
+import { ObjectId } from "mongodb";
+
 export type RecordLabel = {
-    id: string;
+  _id?: ObjectId;
     name: string;
     labelLogoUrl: string;
     foundedYear: number;
@@ -8,8 +10,8 @@ export type RecordLabel = {
   };
   
 export type Artist = {
-    id: string;
-    name: string;
+  _id?: ObjectId;
+  name: string;
     description: string;
     age: number;
     isActive: boolean;

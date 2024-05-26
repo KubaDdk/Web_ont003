@@ -11,10 +11,10 @@
     <p>Instruments: <%= artist.instruments.join(', ') %></p>
     <p>Record Label: <%= artist.recordLabel.name %></p>
     <button>
-        <a href="/bands">BACK</a>
+        <a href="/bands">Back</a>
     </button>
     <button>
-        <a href="/label/<%=artist.recordLabel.id %>">Label Detail</a>
+        <a href="/artist/edit/<%= artist._id %>">Edit</a>
     </button>
 </div>
 

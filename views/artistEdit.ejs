@@ -1,0 +1,19 @@
+<%- include("partials/header") %>
+
+<h1>Edit Artist</h1>
+<form action="/artist/edit/<%= artist._id %>" method="post">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" value="<%= artist.name %>"><br>
+    <label for="genre">Genre:</label><br>
+    <input type="text" id="genre" name="genre" value="<%= artist.genre %>"><br>
+    <label for="age">Age:</label><br>
+    <input type="number" id="age" name="age" value="<%= artist.age %>"><br>
+    <label for="isActive">Is Active:</label><br>
+    <select id="isActive" name="isActive">
+        <option value="true" <%= artist.isActive ? 'selected' : '' %>>Yes</option>
+        <option value="false" <%= artist.isActive ? '' : 'selected' %>>No</option>
+    </select><br>
+    <button type="submit">Submit</button>
+</form>
+
+<%- include("partials/footer") %>

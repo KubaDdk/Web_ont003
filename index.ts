@@ -1,10 +1,11 @@
 import express from "express"
 import { Artist, RecordLabel } from "./interfaces/IArtist"
-import artistData from "./data/artists"
-import labelsData from "./data/recordLabels"
 import dotenv from "dotenv";
-import { connect } from "./database";
+import { connect, getArtists, getLabels, updateArtist } from "./database";
+import { ObjectId } from "mongodb";
+import bodyParser from 'body-parser';
 
+dotenv.config()
 
 const app = express()
 
@@ -13,12 +14,11 @@ app.set('port', process.env.PORT || 3000)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'))
-
-const artists: Artist[] = artistData
-const labels: RecordLabel[] = labelsData
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.use("/bands", (req, res) => {
+app.use("/bands", async (req, res) => {
+    const artists = await getArtists();
     let filteredArtists: Artist[] = artists
     let query = ""
     if (typeof req.query.q === "string") {
@@ -71,7 +71,9 @@ app.use("/bands", (req, res) => {
     });
 });
 
-app.use("/labels", (req, res) => {
+app.use("/labels", async (req, res) => {
+    const labels = await getLabels();
+
     let filteredLabels: RecordLabel[] = labels
     let query = ""
     if (typeof req.query.q === "string") {
@@ -124,29 +126,45 @@ app.get("/", (req, res) => {
     res.render("home");
 });
 
-app.get("/artist/:id", (req, res) => {
-    const id = req.params.id;
+app.get("/artist/:id", async (req, res) => {
+    const artists = await getArtists();
+    const id = new ObjectId(req.params.id);
     const artist = artists.find((artist) => {
-        return artist.id === id;
+        return artist._id ? artist._id.equals(id) : false;
     });
     res.render("artistDetail", { artist: artist });
 });
 
-app.get("/label/:id", (req, res) => {
+app.get("/artist/edit/:id", async (req, res) => {
+    const artists = await getArtists();
+    const id = new ObjectId(req.params.id);
+    const artist = artists.find((artist) => {
+        return artist._id ? artist._id.equals(id) : false;
+    });
+    res.render("artistEdit", { artist: artist });
+});
+
+app.post("/artist/edit/:id", async (req, res) => {
+    const id = new ObjectId(req.params.id);
+    const updatedArtist = req.body;
+    await updateArtist(id, updatedArtist);
+    res.redirect("/artist/" + id);
+});
+
+app.get("/label/:id", async (req, res) => {
+    const labels = await getLabels()
     const id = req.params.id;
     const label = labels.find((label) => {
-        return label.id === id;
+        return label._id ? label._id.equals(id) : false;
     });
     res.render("labelDetail", { label: label });
 });
-
 
 
 app.listen(app.get("port"), async () => {
     await connect();
     console.log(`Server is running on port ${app.get("port")}`);
 });
-
 
 
 export { }

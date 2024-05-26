@@ -24,7 +24,7 @@
         </thead>
         <tbody>
             <% for (let artist of artists) { %>
-                <tr data-href="/artist/<%= artist.id %>">
+                <tr data-href="/artist/<%= artist._id %>">
                     <td><%- artist.name %></td>
                     <td><%- artist.age %></td>
                     <td><%- artist.recordLabel.name %></td>

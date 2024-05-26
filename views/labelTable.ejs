@@ -25,7 +25,7 @@
         </thead>
         <tbody>
             <% for (let label of labels) { %>
-                <tr data-href="/label/<%= label.id %>">
+                <tr data-href="/label/<%= label._id %>">
                     <td><%- label.name %></td>
                     <td><%- label.foundedYear %></td>
                     <td><%- label.founder %></td>
