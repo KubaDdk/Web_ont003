@@ -1,0 +1,14 @@
+<%- include("partials/header") %>
+
+<div class="artist-profile">
+    <img src="<%= label.labelLogoUrl %>" alt="<%= label.name %>">
+    <h2><%= label.name %></h2>
+    <p><%= label.foundedYear %></p>
+    <p>Age: <%= label.founder %></p>
+    <p>Birth Date: <%= label.headquarters %></p>
+    <button>
+        <a href="/labels">BACK</a>
+    </button>
+</div>
+
+<%- include("partials/footer") %>

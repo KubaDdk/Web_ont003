@@ -1,0 +1,54 @@
+<%- include("partials/header") %>
+<div class="searchBar">
+    <form action="/bands" method="GET">
+        <input type="text" name="q" placeholder="Search..." value="<%= query %>">
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+    <table>
+        <thead>
+            <tr>
+                <% for (let field of sortFields) { %>
+                    <th>
+                        <a
+                            href="?sortField=<%= field.value %>&sortDirection=<%= field.value === sortField ? sortDirection === 'asc' ? 'desc' : 'asc' : 'asc' %>">
+                            <%= field.text %>
+                                <% if (field.value===sortField) { %>
+                                    <%- sortDirection==='asc' ? '▲' : '▼' %>
+                                        <% } %>
+                        </a>
+                    </th>
+                    <% } %>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let artist of artists) { %>
+                <tr data-href="/artist/<%= artist.id %>">
+                    <td><%- artist.name %></td>
+                    <td><%- artist.age %></td>
+                    <td><%- artist.recordLabel.name %></td>
+                    <td>
+                        <% if (artist.isActive) { %>
+                            <span style="color: green;">&#x25CF;</span>
+                        <% } else { %>
+                            <span style="color: red;">&#x25CF;</span>
+                        <% } %>
+                    </td>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const rows = document.querySelectorAll("tr[data-href]");
+            rows.forEach(row => {
+                row.addEventListener("click", () => {
+                    window.location.href = row.dataset.href;
+                });
+            });
+        });
+    </script>
+
+    <%- include("partials/footer") %>

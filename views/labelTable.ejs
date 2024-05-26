@@ -1,0 +1,49 @@
+<%- include("partials/header") %>
+
+<div class="searchBar">
+    <form action="/labels" method="GET">
+        <input type="text" name="q" placeholder="Search..." value="<%= query %>">
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+    <table>
+        <thead>
+            <tr>
+                <% for (let field of sortFields) { %>
+                    <th>
+                        <a
+                            href="?sortField=<%= field.value %>&sortDirection=<%= field.value === sortField ? sortDirection === 'asc' ? 'desc' : 'asc' : 'asc' %>">
+                            <%= field.text %>
+                                <% if (field.value===sortField) { %>
+                                    <%- sortDirection==='asc' ? '▲' : '▼' %>
+                                        <% } %>
+                        </a>
+                    </th>
+                    <% } %>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let label of labels) { %>
+                <tr data-href="/label/<%= label.id %>">
+                    <td><%- label.name %></td>
+                    <td><%- label.foundedYear %></td>
+                    <td><%- label.founder %></td>
+ 
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const rows = document.querySelectorAll("tr[data-href]");
+            rows.forEach(row => {
+                row.addEventListener("click", () => {
+                    window.location.href = row.dataset.href;
+                });
+            });
+        });
+    </script>
+
+    <%- include("partials/footer") %>

@@ -1,0 +1,12 @@
+<%- include("partials/header") %>
+
+<% for (let artist of artists) { %>
+    <artist class="artist">
+        <h2><%= artist.name %></h2>
+        <p><%= artist.description %></p>
+        <a href="/artist/<%= artist.id %>">Details</a>
+    </artist>
+<% } %>
+
+
+<%- include("partials/footer") %>
